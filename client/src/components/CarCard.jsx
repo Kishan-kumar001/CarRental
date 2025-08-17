@@ -39,7 +39,7 @@ const CarCard = ({ car }) => {
               {car.brand} {car.model}
             </h3>
             <p className="text-muted-foreground text-sm">
-              {car.category} - {car.year}
+              {car.category} | {car.year}
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@ const CarCard = ({ car }) => {
           </div>
           <div className="flex items-center text-sm text-muted-foreground">
             <img src={assets.car_icon} alt="" className="h-4 mr-2" />
-            <span>{car.transmission} Seats</span>
+            <span>{car.transmission}</span>
           </div>
           <div className="flex items-center text-sm text-muted-foreground">
             <img src={assets.location_icon} alt="" className="h-4 mr-2" />

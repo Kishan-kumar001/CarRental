@@ -8,7 +8,7 @@ const Hero = () => {
       <h1 className="text-4xl md:text-5xl font-semibold mt-20 lg:mt-0">
         Luxury cars on Rent
       </h1>
-      <form className="flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0.1)]">
+      <form className="flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0.1)] jus">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-10 min-md:ml-8">
           <div className="flex flex-col items-start gap-2">
             <select
@@ -47,7 +47,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        <button className="flex items-center justify-center gap-1 px-9 py-3 max-sm:mt-4 bg-primary hover:bg-primary-dull text-white rounded-full cursor-pointer sm:mt-5">
+        <button className="flex items-center justify-center gap-1 px-9 py-3 max-sm:mt-4 bg-primary hover:bg-primary-dull text-white rounded-full cursor-pointer sm:mt-5 lg:mt-0">
           <img
             src={assets.search_icon}
             alt="search"
