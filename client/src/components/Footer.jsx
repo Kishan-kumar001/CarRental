@@ -82,12 +82,12 @@ const Footer = () => {
         <ul className="flex items-center gap-4">
           <li>
             <a href="#">Privacy</a>
-            <span> | </span>
           </li>
+          <li>|</li>
           <li>
             <a href="#">Terms</a>
-            <span> | </span>
           </li>
+          <li>|</li>
           <li>
             <a href="#">Cookies</a>
           </li>
