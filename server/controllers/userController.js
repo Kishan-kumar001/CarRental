@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Car from "../models/Car.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -50,6 +51,16 @@ export const getUserData = async (req, res) => {
   try {
     const { user } = req;
     res.json({ success: true, user });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const getCars = async (req, res) => {
+  try {
+    const cars = await Car.find({ isAvailable: true });
+    res.json({ success: true, cars });
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ success: false, message: error.message });
