@@ -83,7 +83,7 @@ const Dashboard = () => {
           {data.recentBookings.map((booking, index) => (
             <div key={index} className="mt-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="hidden md:fle items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
                   <img
                     src={assets.listIconColored}
                     alt=""

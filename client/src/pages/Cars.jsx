@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
-import { assets, dummyCarData } from "../assets/assets";
+import { assets } from "../assets/assets";
 import CarCard from "../components/CarCard";
 import { useSearchParams } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
@@ -16,6 +16,21 @@ const Cars = () => {
   const [input, setInput] = useState("");
   const isSearchData = pickupLocation && pickupDate && returnDate;
   const [filteredCars, setFilteredCars] = useState([]);
+  const applyFilter = async () => {
+    if (input === "") {
+      setFilteredCars(cars);
+      return null;
+    }
+    const filtered = cars.slice().filter((car) => {
+      return (
+        car.brand.toLowerCase().includes(input.toLowerCase()) ||
+        car.model.toLowerCase().includes(input.toLowerCase()) ||
+        car.category.toLowerCase().includes(input.toLowerCase()) ||
+        car.transmission.toLowerCase().includes(input.toLowerCase())
+      );
+    });
+    setFilteredCars(filtered);
+  };
   const searchCarAvailability = async () => {
     const { data } = await axios.post("/api/bookings/check-availability", {
       location: pickupLocation,
@@ -33,6 +48,9 @@ const Cars = () => {
   useEffect(() => {
     isSearchData && searchCarAvailability();
   }, []);
+  useEffect(() => {
+    cars.length > 0 && !isSearchData && applyFilter();
+  }, [input, cars]);
   return (
     <div>
       <div className="flex flex-col items-center py-20 bg-light max-md:px-4">
@@ -43,7 +61,7 @@ const Cars = () => {
         <div className="flex items-center bg-white px-4 mt-6 max-w-140 w-full h-12 rounded-full shadow">
           <img src={assets.search_icon} alt="" className="w-4.5 h-4.5 mr-2" />
           <input
-            onClick={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             value={input}
             type="text"
             placeholder="Search by make, model or features"

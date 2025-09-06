@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { assets, dummyMyBookingsData } from "../../assets/assets";
 import Title from "../../components/owner/Title";
 import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
@@ -53,7 +52,7 @@ const ManageBookings = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, index) => (
+            {bookings?.map((booking, index) => (
               <tr
                 key={index}
                 className="border-t border-borderColor text-gray-500"
@@ -76,7 +75,7 @@ const ManageBookings = () => {
                   {currency}
                   {booking.price}/day
                 </td>
-                <td className="p-3 max-md:hidden">
+                <td className="p-3 max-sm:hidden">
                   <span className="bg-gray-100 px-3 py-1 rounded-full text-xs">
                     offline
                   </span>
